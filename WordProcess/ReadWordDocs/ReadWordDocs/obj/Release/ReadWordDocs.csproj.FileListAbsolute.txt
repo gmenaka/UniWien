@@ -1,0 +1,8 @@
+F:\Projects\Development\WordProcess\ReadWordDocs\ReadWordDocs\bin\Release\ReadWordDocs.exe.config
+F:\Projects\Development\WordProcess\ReadWordDocs\ReadWordDocs\bin\Release\ReadWordDocs.exe
+F:\Projects\Development\WordProcess\ReadWordDocs\ReadWordDocs\bin\Release\ReadWordDocs.pdb
+F:\Projects\Development\WordProcess\ReadWordDocs\ReadWordDocs\obj\Release\ReadWordDocs.Form1.resources
+F:\Projects\Development\WordProcess\ReadWordDocs\ReadWordDocs\obj\Release\ReadWordDocs.Properties.Resources.resources
+F:\Projects\Development\WordProcess\ReadWordDocs\ReadWordDocs\obj\Release\ReadWordDocs.csproj.GenerateResource.Cache
+F:\Projects\Development\WordProcess\ReadWordDocs\ReadWordDocs\obj\Release\ReadWordDocs.exe
+F:\Projects\Development\WordProcess\ReadWordDocs\ReadWordDocs\obj\Release\ReadWordDocs.pdb
