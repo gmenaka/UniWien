@@ -46,6 +46,8 @@ namespace ReadWordDocs.Logics
                     return;
 
                 WriteResult<RichTextBox, Dictionary<string, Dictionary<string, int>>>(resultControl, destinationfolder, result);
+
+                WriteResult2SummaryFile<Dictionary<string, Dictionary<string, int>>>( destinationfolder, result);
             }
             catch (Exception ex)
             {
@@ -53,6 +55,59 @@ namespace ReadWordDocs.Logics
             }
 
             statusBar.Text = @"Text count process is successfully completed.";
+        }
+
+        internal static void WriteResult2SummaryFile<T1>(string destinationfolder, T1 results)
+            where T1 : Dictionary<string, Dictionary<string, int>>
+        {
+            if (string.IsNullOrEmpty(destinationfolder) || results == null)
+                return;
+
+            var sbTextCountSummary = new StringBuilder();
+
+            // File Header         
+            var textHeader = "FileName";
+
+            foreach (var result in results)
+            {
+                var textCounts = result.Value;
+                foreach (var textCount in textCounts)
+                {
+                    textHeader = string.Format("{0}; {1} ", textHeader, textCount.Key);
+                }
+                break;
+            }
+            
+            sbTextCountSummary.AppendLine(textHeader);
+
+            // File Body
+            foreach (var result in results)
+            {
+                var textCounts = result.Value;
+                textHeader = string.Format("{0}", result.Key);
+
+                foreach (var textCount in textCounts)
+                {
+                    textHeader = string.Format("{0}; {1}", textHeader, textCount.Value);                   
+                }
+                
+                sbTextCountSummary.AppendLine(textHeader);
+            }
+            
+
+            // Write Summary File 
+            try
+            {
+                StreamWriter sw = new StreamWriter(string.Format("{0}\\Summary.csv", destinationfolder));
+                sw.WriteLine(sbTextCountSummary.ToString());
+                sw.Close();
+                GC.Collect();                
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(string.Format("Failure in writing to Summary File ({0})", ex.Message));
+            }
+            
         }
 
 
